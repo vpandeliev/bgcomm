@@ -1,0 +1,39 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Българска фондация в Отава </h1>
+	<br>
+	
+<h2> Устав </h2>
+	<p> Можете да прочетете устава ни <a href="#">тук</a>. </p>
+			
+{%else%}	
+{% if en %}
+<h1> Ottawa Region Bulgarian Foundation </h1>
+<br>
+<h2> Constitution </h2>
+<p> You can read our constitution <a href="#">here</a>. </p>
+
+{% else %}
+<h1> Foundation Bulgare d'Outaouai</h1>
+<br>
+<h2> La constitution </h2>
+	<p> Lisez notre constitution <a href="#">ici</a>. </p>
+			
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

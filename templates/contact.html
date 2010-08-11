@@ -1,0 +1,29 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+
+    <h1>{{contact}}</h1>
+
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li style="color: red;">
+			{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action="/{{prefix}}/send_message" method="post">
+		<p>{{subj}}<br/><input type="text" name="subject" value="{{subject}}"></p>
+		<p>{{email}} ({{optional}})<br/><input type="text" name="emailaddr" value="{{emailaddr}}"></p>
+		<p>{{mess}}<br/><textarea name="message" rows="10" cols="50">{{message}}</textarea></p>
+        <input type="submit" value="{{submit}}">
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> За нашето дружество </h1>
+	<br>
+<h2>Мисия</h2>	
+<p>	Целта на българското дружество в Националния Столичен Район Отава-Гатино е да обедини българи, канадци от български произход, приятели на България и всички които се интересуват от българското културно наследство. </p>
+<p>Дружеството е нестопанска организация, позната на българите в Отава най-вече като организатор на тържества, празници и концерти. Но целите на дружеството се простират по-далеч: от далечната 
+	1990 година досега ние поддържаме българските дух, съзнание и култура, помагаме на новодошли българи в Отава, поощряваме българските бизнеси и фирми и организираме съботното българско училище. 
+	</p><p>Днес, през 2010 година, ние с радост наблюдаваме растежа на нашите млади приятели, както и блестящите изяви на танцов състав Родина и дейността на българската фондация.</p>
+	<h2> Станете член </h2>
+		<p>Едногодишно членство в дружеството струва само 15$ на човек или 25$ на семейство. <a href="/{{prefix}}/join">Станете член днес!</a></p>
+<h2> Устав </h2>
+	<p> Прочетете <a href="#">устава ни</a>. </p>
+		<h2> История </h2>
+		<p> Прочетете <a href="/{{prefix}}/history">историята ни</a>.</p>
+		{%ifnotequal execs.count 0%}
+		<h2> Ръководство </h2>
+		
+		{%for person in execs%}
+		<ul>
+			<li><b>{{person.posbg}}</b>: </li><li>{{person.namebg}}</li>
+			<li>{{person.contact_phone}}</li>
+			<li><a href="mailto:{{person.contact_email}}">E-mail</a></li>
+		</ul>
+		<br/>
+		{%endfor%}
+		{%endifnotequal%}
+{%else%}	
+{% if en %}
+<h1> About our community </h1>
+<br>
+<h2>Mission</h2>
+<p>The NCR Bulgarian Community is an organization whose main purpose is to bring together Bulgarians, Canadians of Bulgarian origins, friends of Bulgaria and anyone interested in the Bulgarian cultural heritage. </p>	
+<h2> Constitution </h2>
+<p> You can read our constitution <a href="#">here</a>. </p>
+
+<h2> Become a member </h2>
+<p> An annual membership is only 15$ per person or 25$ per family. </p>
+<img height=100px width=200px src="{{ MEDIA_URL }}paypalbutton.jpg"></img>
+
+{% else %}
+<h1> Information sur notre comminaute </h1>
+<br>
+<h2>Notre Mission</h2>
+<p>Le but de l’organisation de la communaute bulgare dans la region de la capitale nationale Ottawa - Gatineau est de rassembler des Bulgares, des Canadiens de l'origine bulgare, des amis de la Bulgarie et aussi tous ceux qui sont interesses de la patrimoine culturelle bulgare. </p>
+<h2> La constitution </h2>
+	<p> Lisez notre constitution <a href="#">ici</a>. </p>
+			
+
+	<h2> Devenez un membre </h2>
+	<p> Le frais annuel est seulement 15$ per personne, ou 25$ per famille</p>
+	<img height=100px width=200px src="{{ MEDIA_URL }}paypalbutton.jpg"></img>
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+<h1> {{photos}} </h1>
+<br/>
+<iframe class="center" src="http://www.flickr.com/slideShow/index.gne?group_id=&user_id=36326119@N03&set_id=72157623119502817&text=" frameBorder="0" width="500" height="500" scrolling="no"></iframe>
+<br/>
+<h3> {{flickr}} <a style="font-size: 14px" href="http://www.flickr.com/photos/firthisaword/" target="blank">flickr</a> </h2>
+</div>
+{% endblock %}

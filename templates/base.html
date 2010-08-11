@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Anther  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20090820
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.js"></script>
+	
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block title %}{% endblock %}</title>
+<link href="{{MEDIA_URL}}style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+	<div id="header">
+		<script type="text/javascript" src="{{ MEDIA_URL }}js/banner.js"></script>
+		<div id="logo">
+			<img src="{{ MEDIA_URL }}bglogo.png"></img>
+			<!--<h1><a href="#">Българска Общност  </a></h1>
+			<p> в Националния Столичен Район</p>
+			<p> Отава-Гатино, Канада</p>-->
+			
+		</div>
+	</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+	{% block menu %}
+	{% endblock %}
+		
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+
+		{% block content %}
+		{% endblock %}
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		{% block sidebar %}
+		{% endblock %}
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer-wrapper">
+	<div id="footer">
+		<p>Copyright (c) 2010 bulgariancommunityottawa.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>. <a href="/admin/" target="blank">admin</a></p>
+	</div>
+	<!-- end #footer -->
+</div>
+</body>
+</html>

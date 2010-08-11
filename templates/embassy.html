@@ -1,0 +1,60 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Посолство на Република България </h1>
+	<br>
+	
+<h2> Адрес </h2>
+<ul>
+<li>325 Stewart Street 
+</li><li>
+Ottawa, ON
+</li><li>
+Canada
+</li><li>
+{{phone}}: +1-613-789-3215
+</li>
+</ul>			
+{%else%}	
+{% if en %}
+<h1> Embassy of the Republic of Bulgaria </h1>
+<br>
+<h2> Address </h2>
+<ul>
+<li>325 Stewart Street 
+</li><li>
+Ottawa, ON
+</li><li>
+Canada
+</li><li>
+{{phone}}: +1-613-789-3215
+</li></ul>
+{% else %}
+<h1> L'embassade de la Republique Bulgare </h1>
+<br>
+<h2> Addresse </h2>
+<ul>
+<li>325 Stewart Street 
+</li><li>
+Ottawa, ON
+</li><li>
+Canada
+</li><li>
+{{phone}}: +1-613-789-3215
+</li></ul>
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

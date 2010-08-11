@@ -1,0 +1,51 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+	<p>
+			{% if bg %}
+			    <div class="post" style="width:640px;">
+				<h2 class="title"><a href="/bg/posts/{{item.id}}">{{ item.titlebg }}</a></h2>
+				<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
+				<div class="entry">
+					<img src="{{ MEDIA_URL }}{{item.image}}"></img>
+					{{ item.textbg|safe }}
+					<p><a href="/bg" class="links">{{ back }}</a> </p>
+				</div>
+				</div>
+<!--							
+								<div class="entry">
+									<p>This is <strong>Anther  </strong>, a free, fully standards-compliant CSS template designed by FreeCssTemplates<a href="http://www.nodethirtythree.com/"></a> for <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.  This free template is released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attributions 2.5</a> license, so you’re pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)</p>
+									<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
+									<p><a href="#" class="links">Read More</a> </p>
+
+								</div>
+-->							
+			{% else %}
+			{% if en %}
+		    <div class="post">
+			<h2 class="title"><a href="/en/posts/{{item.id}}">{{ item.titleen }}</a></h2>
+			<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
+			<div class="entry">
+				{{ item.texten|safe }}
+				
+				<p><a href="/en" class="links">{{ back }}</a> </p>
+			</div>
+			</div>
+			{% else %}
+			
+		    <div class="post">
+			<h2 class="title"><a href="/fr/posts/{{item.id}}">{{ item.titlefr }}</a></h2>
+			<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
+			<div class="entry">
+				{{ item.textfr|safe }}
+				
+				<p><a href="/fr" class="links">{{ back }}</a> </p>
+			</div>
+			</div>
+			
+			{% endif %}
+			{% endif %}
+	</p>
+	{% endblock %}

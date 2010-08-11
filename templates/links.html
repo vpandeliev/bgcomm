@@ -1,0 +1,76 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Полезни връзки по категория </h1>
+	<br>
+	<div style="padding: 30px 30px 30px">
+	{% for item in cats%}
+	{%ifnotequal item.titlebg "" %}
+	
+	
+	<h2 class="linkcat">{{item.titlebg}} ({{item.links.count}})</h2>
+	<ul class="linksss">
+		{% for link in item.links%}
+		{%ifnotequal link.titlebg "" %}
+		<li><a href="{{link.link}}" target="blank"> {{link.titlebg}}</a> </li>
+		{%endifnotequal%}
+		{%endfor%}
+	</ul>
+	
+	{%endifnotequal%}
+	{%endfor%}	
+	</div>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/collapse.js"></script>	
+{% else %}
+
+{% if en %}
+<h1> Useful links by category </h1>
+<br>
+{% for item in cats%}
+{%ifnotequal item.titlebg "" %}
+
+<div style="padding-bottom:15px">
+<h2 class="linkcat">{{item.titleen}} ({{item.links.count}})</h2>
+<ul class="linksss">
+	{% for link in item.links%}
+	{%ifnotequal link.titlebg "" %}
+	<li><a href="{{link.link}}" target="blank"> {{link.titleen}}</a> </li>
+	{%endifnotequal%}
+	{%endfor%}
+</ul>
+</div>
+{%endifnotequal%}
+{%endfor%}	
+<script type="text/javascript" src="{{ MEDIA_URL }}js/collapse.js"></script>	
+
+{% else %}
+<h1> Les links utiles par categorie </h1>
+<br>
+{% for item in cats%}
+{%ifnotequal item.titlebg "" %}
+
+<div style="padding-bottom:15px">
+<h2 class="linkcat">{{item.titlefr}} ({{item.links.count}})</h2>
+<ul class="linksss">
+	{% for link in item.links%}
+	{%ifnotequal link.titlebg "" %}
+	<li><a href="{{link.link}}" target="blank"> {{link.titlefr}}</a> </li>
+	{%endifnotequal%}
+	{%endfor%}
+</ul>
+</div>
+{%endifnotequal%}
+{%endfor%}	
+<script type="text/javascript" src="{{ MEDIA_URL }}js/collapse.js"></script>	
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

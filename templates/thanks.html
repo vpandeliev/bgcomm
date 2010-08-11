@@ -1,0 +1,41 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> {{contact}} </h1>
+	<br>
+	
+<h2> Вашето съобщение е изпратено </h2>
+	<p> Е, всъщност още не сме вързали страницата към e-mail така че не е изпратено. </p>
+			
+{%else%}	
+{% if en %}
+	<h1> {{contact}} </h1>
+	<br>
+	
+<h2> Your message has been sent </h2>
+	<p> Well, actually, we haven't linked this to e-mail yet, so it has not been sent. </p>
+
+{% else %}
+	<h1> {{contact}} </h1>
+	<br>
+	
+<h2> Votre message a ete envoye </h2>
+	<p> Alors, le message n'a ete pas envoye parce que nous n'avons pas le courriel </p>
+			
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

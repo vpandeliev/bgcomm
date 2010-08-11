@@ -1,0 +1,57 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Архив {{year}} </h1>
+	<br>
+<table class="table">
+{%for item in posts%}
+<tr>
+	<td class="datecol">{{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}</td>
+	<td class="titlecol"><a href="/{{prefix}}/posts/{{item.id}}">{{item.titlebg}}</a></td>
+</tr>
+{%endfor%}	
+</table>
+		
+{%else%}	
+{% if en %}
+	<h1> Archive {{year}} </h1>
+	<br>
+<table class="table">
+{%for item in posts%}
+<tr>
+	<td class="datecol">{{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}</td>
+	<td class="titlecol"><a href="/{{prefix}}/posts/{{item.id}}">{{item.titleen}}</a></td>
+</tr>
+{%endfor%}	
+</table>
+
+{% else %}
+	<h1> Archive {{year}} </h1>
+	<br>
+<table class="table">
+{%for item in posts%}
+<tr>
+	<td class="datecol">{{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}</td>
+	<td class="titlecol"><a href="/{{prefix}}/posts/{{item.id}}">{{item.titlefr}}</a></td>
+</tr>
+{%endfor%}	
+</table>
+
+			
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

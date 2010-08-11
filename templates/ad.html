@@ -1,0 +1,197 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+<br/>
+
+
+
+
+	{%ifnotequal item.largeimage ""%}
+	{%ifequal item.justimage 1%}
+		<img width=640 height=400 src="{{ MEDIA_URL }}{{item.largeimage}}">
+	{%else%}
+<table class="singlead">
+	<tr>
+		
+		<td class="tleft"><img src="{{ MEDIA_URL }}{{item.largeimage}}"></td>
+		
+		<td>
+			<table>
+				<tr><td class="tright"><h2 style="text-align:center">{{item.titlebg}}</h2></td></tr>
+				<tr><td class="tright tmain"><p>{{item.descriptionbg|safe}}</p></td></tr>
+				{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">За контакти: {{item.contact_name}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Телефон: {{item.contact_phone}}</td></tr>
+				{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Адрес: {{item.location}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">E-mail: {{item.contact_email}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				
+			</table>
+		</td>	
+	</tr>
+
+
+	{%endifequal%}
+	{%else%}
+	<table class="singlead">
+		<tr>
+			<td>
+				<table>
+					<tr><td class="tright"><h2 style="text-align:center">{{item.titlebg}}</h2></td></tr>
+					<tr><td class="tright tmain"><p>{{item.descriptionbg|safe}}</p></td></tr>
+					{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">За контакти: {{item.contact_name}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Телефон: {{item.contact_phone}}</td></tr>
+					{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Адрес: {{item.location}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">E-mail: {{item.contact_email}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+
+				</table>
+			</td>	
+		</tr>
+	
+	{%endifnotequal%}
+
+
+</table>
+			
+{%else%}	
+{% if en %}
+<br/>
+
+
+
+
+	{%ifnotequal item.largeimage ""%}
+	{%ifequal item.justimage 1%}
+		<img width=640 height=400 src="{{ MEDIA_URL }}{{item.largeimage}}">
+	{%else%}
+<table class="singlead">
+	<tr>
+		
+		<td class="tleft"><img src="{{ MEDIA_URL }}{{item.largeimage}}"></td>
+		
+		<td>
+			<table>
+				<tr><td class="tright"><h2 style="text-align:center">{{item.titleen}}</h2></td></tr>
+				<tr><td class="tright tmain"><p>{{item.descriptionen|safe}}</p></td></tr>
+				{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">Contact: {{item.contact_name}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Phone: {{item.contact_phone}}</td></tr>
+				{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Address: {{item.location}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">E-mail: {{item.contact_email}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				
+			</table>
+		</td>	
+	</tr>
+
+
+	{%endifequal%}
+	{%else%}
+	<table class="singlead">
+		<tr>
+			<td>
+				<table>
+					<tr><td class="tright"><h2 style="text-align:center">{{item.titleen}}</h2></td></tr>
+					<tr><td class="tright tmain"><p>{{item.descriptionen|safe}}</p></td></tr>
+					{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">Contact: {{item.contact_name}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Phone: {{item.contact_phone}}</td></tr>
+					{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Address: {{item.location}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">E-mail: {{item.contact_email}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+
+				</table>
+			</td>	
+		</tr>
+	
+	{%endifnotequal%}
+
+
+</table>
+
+
+{% else %}
+<br/>
+
+
+
+
+	{%ifnotequal item.largeimage ""%}
+	{%ifequal item.justimage 1%}
+		<img width=640 height=400 src="{{ MEDIA_URL }}{{item.largeimage}}">
+	{%else%}
+<table class="singlead">
+	<tr>
+		
+		<td class="tleft"><img src="{{ MEDIA_URL }}{{item.largeimage}}"></td>
+		
+		<td>
+			<table>
+				<tr><td class="tright"><h2 style="text-align:center">{{item.titlefr}}</h2></td></tr>
+				<tr><td class="tright tmain"><p>{{item.descriptionfr|safe}}</p></td></tr>
+				{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">Contacte: {{item.contact_name}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Tel. {{item.contact_phone}}</td></tr>
+				{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Addresse: {{item.location}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">Courriel: {{item.contact_email}}</td></tr>
+				{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+				
+			</table>
+		</td>	
+	</tr>
+
+
+	{%endifequal%}
+	{%else%}
+	<table class="singlead">
+		<tr>
+			<td>
+				<table>
+					<tr><td class="tright"><h2 style="text-align:center">{{item.titlefr}}</h2></td></tr>
+					<tr><td class="tright tmain"><p>{{item.descriptionfr|safe}}</p></td></tr>
+					{%ifnotequal item.contact_name ""%}<tr><td class="tright tcenter">Contacte: {{item.contact_name}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_phone ""%}<tr><td class="tright tcenter">Tel.: {{item.contact_phone}}</td></tr>
+					{%else%}<tr><td class="tright tcenter"> ~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.location ""%}<tr><td class="tright tcenter">Addresse: {{item.location}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+					{%ifnotequal item.contact_email ""%}<tr><td class="tright tcenter">Courriel: {{item.contact_email}}</td></tr>
+					{%else%}<tr><td class="tright tcenter">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</td></tr>{%endifnotequal%}
+
+				</table>
+			</td>	
+		</tr>
+	
+	{%endifnotequal%}
+
+
+</table>
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

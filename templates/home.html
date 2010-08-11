@@ -1,0 +1,107 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}	
+<div id="rightbar">
+	<h2 style="text-align: center;"> {{calendar}} </h2>
+<div id="calendar">
+	
+
+		{% if bg %}
+		{% for item in events %}
+			<h1> {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}</h1>
+			<p> <a href="bg/events/{{item.id}}"> {{item.namebg}} </a> </p>
+		{% endfor %}
+			<a id="har" href="bg/events"> {{more}}</a>						
+		{% else %}
+		{% if en %}
+		{% for item in events %}
+			<h1> {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}</h1>
+			<p> <a href="en/events/{{item.id}}"> {{item.nameen}} </a> </p>
+		{% endfor %}
+			<a id="har" href="en/events"> {{more}}</a>						
+		{% else %}
+		{% for item in events %}
+			<h1> {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}</h1>
+			<p> <a href="fr/events/{{item.id}}"> {{item.namefr}} </a> </p>
+		{% endfor %}
+			<a id="har" href="fr/events"> {{more}}</a>						
+		{% endif %}
+		{% endif %}
+					
+
+
+</div>
+	{% if bg %}
+<div class="poll">
+				{% for poll in polls %}
+				{% ifnotequal poll.name ""%}
+				<h1 align="center"> Анкета </h1>
+
+				{{poll.code|safe}}
+				{% endifnotequal%}
+				{%endfor%}
+				</div>				
+		{%endif%}
+	</div>	
+<h1 align="center"> {{news}} </h1>
+		<p>
+		{% for item in posts %}
+			{% if bg %}
+			    <div class="post">
+				<h3 class="title"><a href="/bg/posts/{{item.id}}">{{ item.titlebg }}</a></h3>
+				<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
+				<div class="entry">
+					{{ item.first_paragraph_bg|safe}} 
+					<p><a href="/bg/posts/{{item.id}}" class="links">{{more}}</a></p>
+				</div>
+				</div>
+<!--							
+								<div class="entry">
+									<p>This is <strong>Anther  </strong>, a free, fully standards-compliant CSS template designed by FreeCssTemplates<a href="http://www.nodethirtythree.com/"></a> for <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.  This free template is released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attributions 2.5</a> license, so you’re pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)</p>
+									<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
+									<p><a href="#" class="links">Read More</a> </p>
+
+								</div>
+-->							
+			{% else %}
+			{% if en %}
+		    <div class="post">
+			<h2 class="title"><a href="/en/posts/{{item.id}}">{{ item.titleen }}</a></h2>
+			<p class="meta"> {{ posted }} {{ item.author }} ({{ item.date.date }}) </p>
+			<div class="entry">
+				{{ item.first_paragraph_en|safe}} 
+				<p><a href="/en/posts/{{item.id}}" class="links">{{ more }}</a> </p>
+			</div>
+			</div>
+			{% else %}
+			
+		    <div class="post">
+			<h2 class="title"><a href="/fr/posts/{{item.id}}">{{ item.titlefr }}</a></h2>
+			<p class="meta"> {{ posted }} {{ item.author }} ({{ item.date.date }}) </p>
+			<div class="entry">
+				{{ item.first_paragraph_fr|safe}} 
+				<p><a href="/fr/posts/{{item.id}}" class="links">{{ more }}</a> </p>
+			</div>
+			</div>
+			
+			{% endif %}
+			{% endif %}
+						{% endfor %}
+	</p>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/fadepoll.js"></script>
+	
+	{% endblock %}
+	
+<!--			<div class="post">
+				<h2 class="title"><a href="#">Welcome to Anther   </a></h2>
+				<p class="meta">Posted by <a href="#">Someone</a> on March 10, 2008
+					&nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
+				<div class="entry">
+					<p>This is <strong>Anther  </strong>, a free, fully standards-compliant CSS template designed by FreeCssTemplates<a href="http://www.nodethirtythree.com/"></a> for <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.  This free template is released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attributions 2.5</a> license, so you’re pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)</p>
+					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
+					<p><a href="#" class="links">Read More</a> </p>
+				</div>
+			</div>
+-->

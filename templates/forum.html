@@ -1,0 +1,51 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+{% if bg %}
+	<h1> Форум </h1>
+	<br>
+	
+<h2> Правила </h2>
+	<p> Във форума може да участва всеки, който е потребител на Google, Yahoo, Facebook и т.н. 
+		Няма нужда да се записвате отделно. Моля докато сте във форума се дръжте прилично. </p>
+
+<h2> Сигурност на данните </h2>
+	<p> Форума се хост-ва на сървъра на tal.ki и ние нямаме достъп до данните и не можем да гарантираме къде ще се появят. 
+		Молим, участвайте с повишено внимание и избягвайте да предоставяте лични данни в страниците на форума.</p>
+<h2><a href="/{{prefix}}/forum2"> Към форума... </а></h2>
+{%else%}	
+{% if en %}
+<h1> Forum </h1>
+<br>
+<h2> Rules </h2>
+	<p> Please be polite. No flaming. </p>
+
+<h2> Data security </h2>
+	<p> The forum is externally hosted. Please exercise caution.</p>
+<h2><a href="/{{prefix}}/forum2"> Enter forum... </а></h2>
+
+{% else %}
+<h1> Forum </h1>
+<br>
+<h2> Reglements </h2>
+	<p> Serez polies. Pas des insultes. </p>
+
+<h2> Securite des donnees </h2>
+	<p> Soyez prudents!</p>
+<h2><a href="/{{prefix}}/forum2"> Entrez le forum... </а></h2>
+			
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

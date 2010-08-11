@@ -1,0 +1,78 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Танцов състав Родина </h1>
+	<br>
+	<h2> Танцувайте с нас! </h2>
+			<p> Родина репетира всеки четвъртък в залата на Fontaine Community Centrе 
+			<a href="http://maps.google.ca/maps?oe=utf-8&client=firefox-a&q=120+rue+charlevoix,+gatineau,+qc&ie=UTF8&hq=&hnear=120+Rue+Charlevoix,+Hull,+Communaut%C3%A9-Urbaine-de-l%27Outaouais,+Quebec&gl=ca&ei=sDYZTMHCKIP7lwfAh_HfCw&ved=0CBwQ8gEwAA&ll=45.433801,-75.71816&spn=0.00774,0.022037&z=16" target="blank">(120 Rue Charlevoix, Gatineau, QC)</a>
+			от 19.00 до 21.00 часа. Нови танцьори на всички нива са винаги добре дошли! </p><p>Възполвайте се от възможността да потанцувате и да получите безплатен урок по български народни танци.
+			</p>
+	<h2> Сесии, репетиции и такси</h2>		
+		<p> Учебната година обикновено е разделена на три сесии - есенна (септември до декември), зимна (януари до март) и пролетна (април до юни), всяка с поне 10 репетиции. 
+			Таксата за участие във всяка сесия е 65$ (45$ за ученици и студенти). </p><p>Репетициите протичат в три части:
+			<ul>
+				<li>Разгрявка - 30 минути</li>
+				<li>Разучаване на хора от различни етнографски области - 30 минути</li>
+				<li>Репетиране на сценични танци - 60 минути</li>
+			</ul>	
+				</p>	
+
+
+	<h2> История </h2>
+	<p>  Любовта към богатото културно наследство и красотата на българските народни танци и песни обединява членовете на ансамбъла. Той бе създаден през есента на 2000 година от ентусиазирана и всеотдайна група, които и до днес отделят много от личното си време за да популяризират изкуството на българските народни танци.</p>
+
+	<p>За последните няколко години ансамбълът е натрупал богат репертоар, който включва танци от различни етнографски райони в България: игривостта на Мизия, бързи като вятъра ритми на Шоплука, страстната топлосърдечност на слънчева Тракия, романтичния бунтарски дух на Пирин планина.</p>
+
+	<p>Родина се е представяла с много голям успех на многобройни културни и социални мероприятия в Отава – Гатино, Монреал и Торонто. Костюмите, правени на ръка от членовете на ансамбъла разкриват майсторството и въображението на българката и нейното чувство за красота, оригиналност и хармония.</p>
+
+	<p>Българската душа сякаш се изпълва от тези танци, подвижно отражение на историята на народа. Песни и танци отразяват душевната красотата и доброта на българския народ.</p>
+	
+<h2> Ръководител </h2>
+	<p>За контакти и повече информация, пишете на 
+		<ul>
+			<li>Рени Стаматова</li>
+			<li>Телефон: (613) 834-8725 </li>
+			<li><a href="mailto:rstamatova@rogers.com">E-mail</a></li>
+		</ul>
+</p>
+		
+		<br/>
+		<h2>Видео</h2>	
+{%else%}	
+{% if en %}
+<h1> Bulgarian Dance Troupe 'Rodina'</h1>
+<br>
+<h2> Choreographer </h2>
+<p>Reni Stamatova </p>
+<h2>Videos</h2>
+{% else %}
+<h1> Ensemble de danse 'Rodina' </h1>
+<br>
+<h2> Choreographe </h2>
+	<p> Reni Stamatova </p>
+			
+<h2>Videos</h2>
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+<br/><br/>
+<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/kJpqcjyPYiQ&hl=en_US&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/kJpqcjyPYiQ&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+<br/><br/>
+<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/MSKRscDFIpg&hl=en_US&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/MSKRscDFIpg&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>
+<br/><br/>
+<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/i-joGj7VpPI&hl=en_US&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/i-joGj7VpPI&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+</div>
+
+{% endblock %}

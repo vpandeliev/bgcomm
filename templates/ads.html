@@ -1,0 +1,48 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Реклами </h1>
+	<br/>
+<p style="text-align:center;">		<a href="/{{prefix}}/advertise">Рекламирайте при нас</a>
+</p>
+<p class="adlist">	
+{% for ad in adverts %}
+{%ifequal ad.link ""%}
+<a target="blank" href="/{{prefix}}/ads/{{ad.id}}"><img src="{{ MEDIA_URL }}{{ad.image}}"></a>
+{%else%}
+<a target="blank" href="{{ad.link}}"><img src="{{ MEDIA_URL }}{{ad.image}}"></a>
+{%endifequal%}
+
+
+{%endfor%}			
+</p>
+{%else%}	
+{% if en %}
+<h1> Bulgarian Students' Experimental Theatre of Ottawa - BURETO </h1>
+<br>
+<h2> Constitution </h2>
+<p> You can read our constitution <a href="#">here</a>. </p>
+
+{% else %}
+<h1> Theatre experimentale des etudiant(e)s d'Ottawa - BURETO</h1>
+<br>
+<h2> La constitution </h2>
+	<p> Lisez notre constitution <a href="#">ici</a>. </p>
+			
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

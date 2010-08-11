@@ -1,0 +1,85 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Членство в дружеството </h1>
+	<br>
+
+	{% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li style="color: red;">
+			{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action="/{{prefix}}/membership" method="post">
+		<p>Име <br/><input type="text" name="name" value="{{enteredname}}">
+			<br/>(ако подавате за членство на семейство, моля въведете имената на всички)</p>
+		<p>Главен e-mail	<input type="text" name="emailaddr" value="{{emailaddr}}"><br/>На този e-mail ще изпратим инструкции за плащане</p>
+		<p>Още e-mail-и ({{optional}})<br/><input type="text" name="emailaddr" value="{{emailaddr}}"><br/>Тези адреси (по един на човек) ще получат пароли за форума</p>
+		<p>Вид членство:<br/><input type="radio" name="memtype" value="one person" checked>Едногодишно за един човек (15$)<br/>
+			<input type="radio" name="memtype" value="a family">Едногодишно за семейство (25$)<br/>
+			</p>
+			<p>Начин на плащане:<br/><input type="radio" name="billtype" value="paypal" checked>PayPal<br/>
+				<input type="radio" name="billtype" value="mail">По пощата<br/>
+				<input type="radio" name="billtype" value="cash">Лично на следващото събитие
+				</p>
+		
+        <input type="submit" value="{{submit}}">
+    </form>
+
+<h2> Роля </h2>
+	<p> Българското дружество е организация, която изцяло зависи от членовете си - тя съществува за да задоволява техните нужди, 
+		те са тези, които и вдъхват живот. Като член на българското дружество, и Вие имате шанс
+		да участвате в развитието на дружеството в правилна посока. </p>
+
+<h2> Привилегии </h2>
+	<p> Ето пълния списък от отстъпки и ресурси, на които се радват нашите членове:
+		<ul>
+			<li>Отстъпки в цената на билетите за всички наши събития (20-25%)</li>
+			<li>Отстъпки в цената на реклама на нашия сайт (до 50%)</li>
+			<li>Право да отговарят във форума, да задават въпроси и да подават обяви</li>
+			<li>Възможност да качват снимки на сайта на дружеството</li>
+			<li>Право да изпращат материали за периодичните ни конкурси</li>
+			<li>Право да гласуват на отчетно-изборни събрания</li>
+			<li>Право да се кандидатират за ръководни длъжности</li>
+			<li>Специални ежегодни събития, до които имат изключителен достъп</li>
+		</ul>
+	</p>
+
+<br/>
+
+<h2> Станете член! </h2>
+	<p> Едногодишния членски внос е само 15$. Цяло семейство може да членува за 25$.</p>
+	
+{%else%}	
+{% if en %}
+<h1> Bulgarian Students' Experimental Theatre of Ottawa - BURETO </h1>
+<br>
+<h2> Constitution </h2>
+<p> You can read our constitution <a href="#">here</a>. </p>
+
+{% else %}
+<h1> Theatre experimentale des etudiant(e)s d'Ottawa - BURETO</h1>
+<br>
+<h2> La constitution </h2>
+	<p> Lisez notre constitution <a href="#">ici</a>. </p>
+			
+
+
+
+
+
+
+{%endif%}
+
+{%endif%}
+</div>
+
+{% endblock %}

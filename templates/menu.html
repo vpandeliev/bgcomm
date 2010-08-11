@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block sidebar %}
+
+	<div id="sidebar"> <ul>
+
+ <li> <ul> {% for item in aff %} {% if bg %} <li><a class="secondarymenu"
+href="/{{ prefix }}/{{item.link}}">{{item.bg}}</a></li> {% else %} {% if en %} <li><a
+class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.en}}</a></li> {% else %} <li><a
+class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {% endif %} {% endif %} 
+{% endfor %}
+</ul></li>
+{% if bg %}
+<li>
+	<div id="memberad">
+		<h2>Нашите членове се радват на:</h2>
+			<ul>
+				<li>Отстъпки за билети и реклама</li>
+				<li>Пълен достъп до форума</li>
+				<li>Ексклусивни партита</li>
+
+			</ul>
+
+
+	<a class="bigbutton" href="/{{prefix}}/join">Запишете се днес! </a>
+	</div>
+</li>
+{%else%}{%if en%}
+<li>
+	<div id="memberad">
+		<h2>Our members enjoy:</h2>
+			<ul>
+				<li>Discounts on tickets and ads</li>
+				<li>Full access to the forum</li>
+				<li>Exclusive events</li>
+
+			</ul>
+
+
+	<a href="/{{prefix}}/join">Join us today! </a>
+	</div>
+</li>
+{%else%}
+<li>
+	<div id="memberad">
+		<h2>Нашите членове се радват на:</h2>
+			<ul>
+				<li>Отстъпки за билети и реклама</li>
+				<li>Пълен достъп до форума</li>
+				<li>Ексклусивни партита</li>
+
+			</ul>
+
+
+	<a class="bigbutton" href="/{{prefix}}/join">Запишете се днес! </a>
+	</div>
+</li>
+{%endif%}{%endif%}
+<li>
+<br/>
+<ul>
+{%for item in ads%}
+{%ifequal item.link ""%}
+<li><a href="/{{prefix}}/ads/{{item.id}}"><img style="height:50px; width:200px" src="{{ MEDIA_URL }}{{item.image}}"></img></a></li>
+{%else%}
+<li><a href="{{item.link}}"><img style="height:50px; width:200px" src="{{ MEDIA_URL }}{{item.image}}"></img></a></li>
+{%endifequal%}
+{%endfor%}
+<li style="height:16px"><a class="secondarymenu" href="/{{prefix}}/ads" >{{allads}}</a></li>
+<li><a class="secondarymenu" href="/{{prefix}}/advertise">{{adcall}}</a></li>
+ </ul> </li> 
+<!--><li> <h2>{{sps}}</h2> {{sponsors}}
+	<ul>
+		
+	<li><img src="{{ MEDIA_URL }}gatineau.jpg"></img><img src="{{ MEDIA_URL }}ottawa.jpg"></img></li> </ul> </li>
+	--> 
+
+<div class="memberad">	<li><center>
+	<form action="https://www.paypal.com/cgi-bin/webscr" target="blank" method="post">
+	<input type="hidden" name="cmd" value="_donations">
+	<input type="hidden" name="business" value="vpandeliev@gmail.com">
+	<input type="hidden" name="lc" value="CA">
+	<input type="hidden" name="item_name" value="National Capital Region Bulgarian Community">
+	<input type="hidden" name="no_note" value="0">
+	<input type="hidden" name="currency_code" value="CAD">
+	<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+	<input type="image" src="{{ MEDIA_URL }}buynow{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	
+	</form>
+	</center>
+	</li></div>
+<li>
+<h2>{{archive}}</h2> <ul> 
+{% for item in years %}
+	<li><a class="secondarymenu" href="/{{prefix}}/archive/{{item}}">{{item}}</a></li> 
+{% endfor %}
+</ul> </div>
+
+{% endblock %}
+
+{% block menu %}
+
+<ul>
+	<li><a href="/{{ prefix }}">{{ home }}</a></li>
+	<li><a href="/{{ prefix }}/about">{{ about }}</a></li>
+	<li><a href="/{{ prefix }}/links">{{ links }}</a></li>
+	<li><a href="/{{ prefix }}/school">{{ school }}</a></li>
+	<li><a href="/{{ prefix }}/photos">{{ photos }}</a></li>
+	<li><a href="/{{ prefix }}/contact">{{ contact }}</a></li>
+	<li><a href="/{{ prefix }}/forum">{{ forum }}</a></li>
+		<li class="abs"><a id="tr1" href={{lg2link}}><img src="{{ MEDIA_URL }}{{lg2}}"></a></li>
+		<li class="abs"><a id="tr2" href={{lg1link}}><img src="{{ MEDIA_URL }}{{lg1}}"></a></li></ul>
+
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/hl.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/transl.js"></script>
+{% endblock %}

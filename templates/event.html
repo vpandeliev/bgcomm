@@ -1,0 +1,224 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+	<p>
+			{% if bg %}
+			    <div class="post" style="width:640px;">
+				<h2 class="title">{{ item.namebg }}</h2>
+				{%ifequal item.date.time.minute 0%}
+				<p class="date"> На {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}} {{oclock}} </p>
+				{%else%}
+				<p class="date"> На {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}}:{{item.date.time.minute}} {{oclock}} </p>
+				{%endifequal%}
+				
+				<div class="entry">
+					<img src="{{ MEDIA_URL }}{{item.image}}"></img>
+					<p> {{ item.descriptionbg|safe }}</p>
+				<h1> {{address}}</h1>
+				<p> {{item.location}} </p>
+				
+				{%ifnotequal item.contact_name ""%}
+				<h1> {{contactperson}}</h1>
+				<p> За повече информация търсете:<br><br>
+				{{item.contact_name}} <br>
+ 				{%ifnotequal item.contact_phone ""%}{{phone}}: {{item.contact_phone}}<br>{%endifnotequal%}
+ 				{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
+
+				
+				{%endifnotequal%}
+				
+				{%ifnotequal item.cost.count 0%}
+				<h1>{{cost}}</h1>
+				<p>Цените на билетите са дадени по категории. За да закупите билети онлайн чрез PayPal, ползвайте бутоните вдясно на цените.</p>
+				<table>
+				<tr>
+				{%for price in item.cost.all%}
+				<td style="padding-right:20px">{{price.category.namebg}}</td>
+				<td style="padding-right:20px">{{price.cost}}$</td>
+				<td>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_xclick">
+				<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+				<input type="hidden" name="lc" value="CA">
+				<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+				<input type="hidden" name="amount" value="{{price.cost}}">
+				<input type="hidden" name="currency_code" value="CAD">
+				<input type="hidden" name="button_subtype" value="services">
+				<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
+				<input type="image" src="{{ MEDIA_URL }}buynow{{prefix}}.jpg" border="0" name="submit">
+				</form>
+				</td><td style="padding-right:20px">
+				<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+				<input type="hidden" name="lc" value="CA">
+				<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+				<input type="hidden" name="amount" value="{{price.cost}}">
+				<input type="hidden" name="currency_code" value="CAD">
+				<input type="hidden" name="button_subtype" value="products">
+				<input type="hidden" name="add" value="1">
+				<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
+				<input type="image" src="{{ MEDIA_URL }}cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				</form>
+			
+				</td>
+				</tr>
+				
+				{%endfor%}
+				</table>
+				{%endifnotequal%}
+			
+					<p><a href="/bg/events" class="links">{{ back }}</a> </p>
+				</div>
+				</div>
+<!--							
+								<div class="entry">
+									<p>This is <strong>Anther  </strong>, a free, fully standards-compliant CSS template designed by FreeCssTemplates<a href="http://www.nodethirtythree.com/"></a> for <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.  This free template is released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attributions 2.5</a> license, so you’re pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)</p>
+									<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
+									<p><a href="#" class="links">Read More</a> </p>
+
+								</div>
+-->							
+			{% else %}
+			{% if en %}
+		    <div class="post" style="width:640px;">
+			<h2 class="title"><a href="/en/events/{{item.id}}">{{ item.nameen }}</a></h2>
+			{%ifequal item.date.time.minute 0%}
+			<p class="date"> On {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}} {{oclock}} </p>
+			{%else%}
+			<p class="date"> On {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}}:{{item.date.time.minute}} </p>
+			{%endifequal%}
+			
+			<div class="entry">
+				<p> {{ item.descriptionen|safe }}</p>
+			<h1> {{address}}</h1>
+			<p> {{item.location}} </p>
+			
+			{%ifnotequal item.contact_name ""%}
+			<h1> {{contactperson}}</h1>
+			<p> For more information contact:<br><br>
+			{{item.contact_name}} <br>
+			{%ifnotequal item.contact_phone ""%}{{phone}}: {{item.contact_phone}}<br>{%endifnotequal%}
+			{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
+
+			{%endifnotequal%}
+			
+			{%ifnotequal item.cost.count 0%}
+			<h1>{{cost}}</h1>
+			<p>Ticket prices are given by category. To purchase tickets using PayPal, use the buttons below.</p>
+			<table>
+			<tr>
+			{%for price in item.cost.all%}
+			<td style="padding-right:20px">{{price.category.nameen}}</td>
+			<td style="padding-right:20px">{{price.cost}}$</td>
+			<td>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_xclick">
+			<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+			<input type="hidden" name="lc" value="CA">
+			<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+			<input type="hidden" name="amount" value="{{price.cost}}">
+			<input type="hidden" name="currency_code" value="CAD">
+			<input type="hidden" name="button_subtype" value="services">
+			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
+			<input type="image" src="{{ MEDIA_URL }}buynow{{prefix}}.jpg" border="0" name="submit">
+			</form>
+			</td><td style="padding-right:20px">
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_cart">
+			<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+			<input type="hidden" name="lc" value="CA">
+			<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+			<input type="hidden" name="amount" value="{{price.cost}}">
+			<input type="hidden" name="currency_code" value="CAD">
+			<input type="hidden" name="button_subtype" value="products">
+			<input type="hidden" name="add" value="1">
+			<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
+			<input type="image" src="{{ MEDIA_URL }}cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			</form>
+		
+			</td>
+			</tr>
+			
+			{%endfor%}
+			</table>
+			{%endifnotequal%}
+			
+				<p><a href="/en/events" class="links">{{ back }}</a> </p>
+			</div>
+			</div>
+			{% else %}
+			
+		    <div class="post" style="width:640px;">
+			<h2 class="title"><a href="/fr/events/{{item.id}}">{{ item.namefr }}</a></h2>
+			{%ifequal item.date.time.minute 0%}
+			<p class="date"> Le {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}} {{oclock}} </p>
+			{%else%}
+			<p class="date"> Le {{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}} {{at}} {{item.date.time.hour}}:{{item.date.time.minute}}  </p>
+			{%endifequal%}
+			
+			<div class="entry">
+				<p> {{ item.descriptionfr|safe }}</p>
+			<h1> {{address}}</h1>
+			<p> {{item.location}} </p>
+			
+			{%ifnotequal item.contact_name ""%}
+			<h1> {{contactperson}}</h1>
+			<p> Pour obtenir plus d'information contactez:<br><br>
+			{{item.contact_name}} <br>
+			{%ifnotequal item.contact_phone ""%}{{phone}}: {{item.contact_phone}}<br>{%endifnotequal%}
+			{%ifnotequal item.contact_email ""%}<a href="mailto:{{item.contact_email}}"><b>{{email}}</b></a></p>{%endifnotequal%}
+
+			{%endifnotequal%}
+
+			{%ifnotequal item.cost.count 0%}
+			<h1>{{cost}}</h1>
+			<p>Les prix des billets sont donnees par categorie. Pour acheter les billets, utilisez les claviers dessous</p>
+			<table>
+			<tr>
+			{%for price in item.cost.all%}
+			<td style="padding-right:20px">{{price.category.namefr}}</td>
+			<td style="padding-right:20px">{{price.cost}}$</td>
+			<td>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_xclick">
+			<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+			<input type="hidden" name="lc" value="CA">
+			<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+			<input type="hidden" name="amount" value="{{price.cost}}">
+			<input type="hidden" name="currency_code" value="CAD">
+			<input type="hidden" name="button_subtype" value="services">
+			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
+			<input type="image" src="{{ MEDIA_URL }}buynow{{prefix}}.jpg" border="0" name="submit">
+			</form>
+			</td><td style="padding-right:20px">
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_cart">
+			<input type="hidden" name="business" value="TP7X7MP2TUGSY">
+			<input type="hidden" name="lc" value="CA">
+			<input type="hidden" name="item_name" value="{{price.category.nameen}}">
+			<input type="hidden" name="amount" value="{{price.cost}}">
+			<input type="hidden" name="currency_code" value="CAD">
+			<input type="hidden" name="button_subtype" value="products">
+			<input type="hidden" name="add" value="1">
+			<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted">
+			<input type="image" src="{{ MEDIA_URL }}cart{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			</form>
+		
+			</td>
+			</tr>
+			
+			{%endfor%}
+			</table>
+			{%endifnotequal%}
+			
+			
+				<p><a href="/fr/events" class="links">{{ back }}</a> </p>
+			</div>
+			</div>
+			{% endif %}
+			{% endif %}
+	</p>
+	{% endblock %}
