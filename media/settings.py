@@ -10,7 +10,7 @@ ROOT_PATH = os.path.dirname(__file__)
 try:
     from local_settings import *
 except ImportError:
-    print u'File local_settings.py is not found. Continuing with production settings.'
+    print u'File settings_local.py is not found. Continuing with production settings.'
 DEBUG=False
 MAX_POSTS = 5
 MAX_EVENTS = 3
@@ -67,7 +67,11 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = 'home/webapps/mediaserv'
+MEDIA_ROOT = 'home/bulgarian/webapps/mediaserv'
+
+FILE_UPLOAD_TEMP_DIR = '/home/bulgarian/webapps/tmp/'
+FILE_UPLOAD_PERMISSIONS = 0644
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
@@ -79,10 +83,7 @@ MEDIA_URL = 'http://bulgarian.webfactional.com/media/'
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = 'http://bulgarian.webfactional.com/media/admin/'
 
-try:
-    from local_settings import MEDIA_ROOT
-except ImportError:
-    print u'File settings_local.py is not found. Continuing with production settings.'
+
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -105,7 +106,7 @@ MIDDLEWARE_CLASSES = (
 'django.middleware.csrf.CsrfViewMiddleware',
 'django.middleware.csrf.CsrfResponseMiddleware',
 		'django.middleware.doc.XViewMiddleware',
-		#'lockdown.middleware.LockdownMiddleware',
+		'lockdown.middleware.LockdownMiddleware',
 	
 )
 

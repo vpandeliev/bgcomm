@@ -1,0 +1,40 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+{% if bg %}
+	<h1> Българска православна църква "Христос Спасител" </h1>
+	<br>
+	<p>721 Somerset Street West
+	Ottawa, ON </p><p>
+	<a href="http://www.christthesaviour.ca/" target="blank">Официален сайт на църквата</a></p>
+
+{%else%}	
+{% if en %}
+<h1> Bulgarian Orthodox Church "Christ the Saviour" </h1>
+<br>
+<p>
+721 Somerset Street West
+Ottawa, ON
+</p><p>
+	<a href="http://www.christthesaviour.ca/" target="blank">Official site of the church</a></p>
+{% else %}
+<h1> L'eglise bulgare "Christ le saveur"</h1>
+<br><p>
+721 Rue Somerset Ouest
+Ottawa, ON
+</p><p>
+	<a href="http://www.christthesaviour.ca/" target="blank">Le site officiel de l'eglise</a>		
+</p>
+{%endif%}
+
+{%endif%}
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?q=christ+the+saviour+church+ottawa+on&amp;oe=utf-8&amp;client=firefox-a&amp;ie=UTF8&amp;hl=en&amp;hq=christ+the+saviour+church&amp;hnear=Ottawa,+Ottawa+Division,+Ontario&amp;cid=10646345846713296335&amp;ll=45.418034,-75.704384&amp;spn=0.021086,0.036478&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://maps.google.ca/maps?q=christ+the+saviour+church+ottawa+on&amp;oe=utf-8&amp;client=firefox-a&amp;ie=UTF8&amp;hl=en&amp;hq=christ+the+saviour+church&amp;hnear=Ottawa,+Ottawa+Division,+Ontario&amp;cid=10646345846713296335&amp;ll=45.418034,-75.704384&amp;spn=0.021086,0.036478&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+<img src="{{ MEDIA_URL }}under_construction.gif"></img>
+
+</div>
+
+{% endblock %}
