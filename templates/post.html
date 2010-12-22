@@ -28,6 +28,7 @@
 			<h2 class="title"><a href="/en/posts/{{item.id}}">{{ item.titleen }}</a></h2>
 			<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
 			<div class="entry">
+				<img src="{{ MEDIA_URL }}{{item.image}}"></img>
 				{{ item.texten|safe }}
 				
 				<p><a href="/en" class="links">{{ back }}</a> </p>
@@ -39,6 +40,7 @@
 			<h2 class="title"><a href="/fr/posts/{{item.id}}">{{ item.titlefr }}</a></h2>
 			<p class="meta"> {{ posted }} {{ item.author }} ({{item.date.date.day}}.{{item.date.date.month}}.{{item.date.date.year}}) </p>
 			<div class="entry">
+				<img src="{{ MEDIA_URL }}{{item.image}}"></img>
 				{{ item.textfr|safe }}
 				
 				<p><a href="/fr" class="links">{{ back }}</a> </p>
