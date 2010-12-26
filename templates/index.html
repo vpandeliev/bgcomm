@@ -1,10 +1,52 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Anther  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20090820
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.js"></script>
+	
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block title %}{% endblock %}</title>
+<link href="{{MEDIA_URL}}style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
-	<a href="/bg">Bulgarian</a>
-	<a href="/en">English</a>
-	<a href="/fr">French</a>
+<div id="wrapper">
 
+	</div>
+	<!-- end #header -->
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+		<div id="content">
+
+			<img id="start" class="image active" style="padding-top: 40px;" width=400 height=300 src="{{MEDIA_URL}}bglogo.png"></img>
+			
+			<br>
+			<br>
+			<br>
+			<table width=400 style="text-align:center;">
+				<tr>
+					<td class="butt" id="bg" style="border:2px solid #696969; background-color:#b00" height="40px" width="31%"><a style="color: #fff; font-size:20px; text-align:center;" href="/bg">Български</a></td>
+					<td class="butt" id="en" style="border:2px solid #696969; background-color:#b00" width="31%"><a style="color: #fff; font-size:20px; text-align:center;" href="/en">English</a></td>
+					<td class="butt" id="fr" style="border:2px solid #696969; background-color:#b00" width="31%"><a style="color: #fff; font-size:20px; text-align:center;" href="/fr">Francais</a></td>
+				</tr>
+			</table>
+			
+			
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
 </body>
 </html>

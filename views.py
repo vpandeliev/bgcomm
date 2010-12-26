@@ -107,9 +107,9 @@ def error_gen(lg):
 ### RENDERING FUNCTIONS - these are all called by a matched pattern in the urls.py file
 
 
-def index(response):
+def index(request):
 	"""Renders the landing page (the Bulgarian/English/French selection page, index.html)"""
-	return render_to_response('index.html')
+	return render_to_response('index.html',context_instance = RequestContext(request))
 
 
 def home_page(request, lg):
