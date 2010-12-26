@@ -66,7 +66,9 @@ class="secondarymenu" href="/{{ prefix }}/{{item.slug}}">{{item.linkfr}}</a></li
 <li><a href="{{item.link}}"><img style="height:50px; width:200px" src="{{ MEDIA_URL }}{{item.image}}"></img></a></li>
 {%endifequal%}
 {%endfor%}
+{%if ads%}
 <li style="height:16px"><a class="secondarymenu" href="/{{prefix}}/ads" >{{allads}}</a></li>
+{%endif%}
 <li><a class="secondarymenu" href="/{{prefix}}/advertise">{{adcall}}</a></li>
  </ul> </li> 
 <!--><li> <h2>{{sps}}</h2> {{sponsors}}
