@@ -1,0 +1,27 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="page">
+
+	{% if bg %}
+		<h1> 404 - Страницата не съществува </h1>
+
+	{%else%}	
+	{% if en %}
+		<h1> 404 - Page Not Found </h1>
+
+	{% else %}
+	<h1> 404 - Ceci n'est pas une page </h1>
+
+
+
+
+	{%endif%}
+
+	{%endif%}
+	<br/>	<br/>
+	<img style="width: 640px;" src="{{ MEDIA_URL }}404-1.jpg"></img>
+</div>
+{% endblock %}

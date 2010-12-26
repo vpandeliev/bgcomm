@@ -3,10 +3,11 @@
 
 	<div id="sidebar"> <ul>
 
- <li> <ul> {% for item in aff %} {% if bg %} <li><a class="secondarymenu"
-href="/{{ prefix }}/{{item.link}}">{{item.bg}}</a></li> {% else %} {% if en %} <li><a
-class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.en}}</a></li> {% else %} <li><a
-class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {% endif %} {% endif %} 
+ <li> <ul> 
+	{% for item in aff %} {% if bg %} <li><a class="secondarymenu"
+href="/{{ prefix }}/{{item.slug}}">{{item.linkbg}}</a></li> {% else %} {% if en %} <li><a
+class="secondarymenu" href="/{{ prefix }}/{{item.slug}}">{{item.linken}}</a></li> {% else %} <li><a
+class="secondarymenu" href="/{{ prefix }}/{{item.slug}}">{{item.linkfr}}</a></li> {% endif %} {% endif %} 
 {% endfor %}
 </ul></li>
 {% if bg %}
@@ -74,19 +75,19 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {%
 	<li><img src="{{ MEDIA_URL }}gatineau.jpg"></img><img src="{{ MEDIA_URL }}ottawa.jpg"></img></li> </ul> </li>
 	--> 
 
-<div class="memberad">	<li><center>
+<div class="memberad">	<li>
 	<form action="https://www.paypal.com/cgi-bin/webscr" target="blank" method="post">
 	<input type="hidden" name="cmd" value="_donations">
-	<input type="hidden" name="business" value="vpandeliev@gmail.com">
+	<input type="hidden" name="business" value="ncrbcaccounts@yahoo.ca">
 	<input type="hidden" name="lc" value="CA">
 	<input type="hidden" name="item_name" value="National Capital Region Bulgarian Community">
 	<input type="hidden" name="no_note" value="0">
 	<input type="hidden" name="currency_code" value="CAD">
 	<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
-	<input type="image" src="{{ MEDIA_URL }}buynow{{prefix}}.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<input type="image" src="{{ MEDIA_URL }}donate{{prefix}}.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 	
 	</form>
-	</center>
+
 	</li></div>
 <li>
 <h2>{{archive}}</h2> <ul> 
@@ -98,15 +99,26 @@ class="secondarymenu" href="/{{ prefix }}/{{item.link}}">{{item.fr}}</a></li> {%
 {% endblock %}
 
 {% block menu %}
-
 <ul>
 	<li><a href="/{{ prefix }}">{{ home }}</a></li>
-	<li><a href="/{{ prefix }}/about">{{ about }}</a></li>
+
+	{% for item in menuitems %}
+		
+		{% if bg %}
+			<li><a href="/{{ prefix }}/{{item.slug}}">{{ item.linkbg }}</a></li>
+		{%else%}	
+		{% if en %}
+		<li><a href="/{{ prefix }}/{{item.slug}}">{{ item.linken }}</a></li>
+			
+		{% else %}
+		<li><a href="/{{ prefix }}/{{item.slug}}">{{ item.linkfr }}</a></li>
+		
+		
+		{%endif%}
+
+		{%endif%}
+	{% endfor %}
 	<li><a href="/{{ prefix }}/links">{{ links }}</a></li>
-	<li><a href="/{{ prefix }}/school">{{ school }}</a></li>
-	<li><a href="/{{ prefix }}/photos">{{ photos }}</a></li>
-	<li><a href="/{{ prefix }}/contact">{{ contact }}</a></li>
-	<li><a href="/{{ prefix }}/forum">{{ forum }}</a></li>
 		<li class="abs"><a id="tr1" href={{lg2link}}><img src="{{ MEDIA_URL }}{{lg2}}"></a></li>
 		<li class="abs"><a id="tr2" href={{lg1link}}><img src="{{ MEDIA_URL }}{{lg1}}"></a></li></ul>
 

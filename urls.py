@@ -7,6 +7,8 @@ from django.contrib import admin
 admin.autodiscover()
 defaultdict = { 'groupName': 'example' }
 
+handler404 = 'bgcomm.views.custom_404'
+
 urlpatterns = patterns('',
 #	(r'^admin/filebrowser/', include('filebrowser.urls')),
 	(r'^admin/', include(admin.site.urls)),
@@ -23,7 +25,7 @@ urlpatterns = patterns('',
 	(r'^(?P<lg>\w{2})/membership_request$', membership_request),
 	(r'^(?P<lg>\w{2})/archive/(?P<year>[0-9]*)$', single_year_archive),
 	(r'^(?P<lg>\w{2})/events$', list_of_events),
-	(r'^(?P<lg>\w{2})/about$', about_page),
+	#(r'^(?P<lg>\w{2})/about$', about_page),
 	(r'^(?P<lg>\w{2})/ads/(?P<pid>[0-9]*)$', single_ad),
 	(r'^(?P<lg>\w{2})/ads$', list_of_ads),
 	(r'^(?P<lg>\w{2})/events/(?P<pid>[0-9]*)$', single_event),

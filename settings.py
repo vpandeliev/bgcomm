@@ -1,7 +1,6 @@
 # Django settings for bgcomm project.
 import os
 #import sys
-
 ROOT_PATH = os.path.dirname(__file__)
 #LIB_PATH = os.path.join(ROOT_PATH, 'sct-0.6','communitytools','sphenecoll')
 #sys.path.append(ROOT_PATH)
@@ -11,11 +10,12 @@ try:
     from local_settings import *
 except ImportError:
     print u'File local_settings.py is not found. Continuing with production settings.'
-DEBUG=False
+
+
 MAX_POSTS = 5
 MAX_EVENTS = 3
 SIDEBAR_ADS = 3
-DEBUG = True
+DEBUG=False
 TEMPLATE_DEBUG = DEBUG
 FEEDBACK_EMAILS = ["bulgariancommunity@yahoo.ca","vpandeliev@gmail.com"]
 MEMBERSHIP_EMAILS = ["bulgariancommunity@yahoo.ca"]
@@ -80,7 +80,7 @@ MEDIA_URL = 'http://bulgarian.webfactional.com/media/'
 ADMIN_MEDIA_PREFIX = 'http://bulgarian.webfactional.com/media/admin/'
 
 try:
-    from local_settings import MEDIA_ROOT
+    from local_settings import MEDIA_ROOT, MEDIA_URL
 except ImportError:
     print u'File settings_local.py is not found. Continuing with production settings.'
 
@@ -105,6 +105,7 @@ MIDDLEWARE_CLASSES = (
 'django.middleware.csrf.CsrfViewMiddleware',
 'django.middleware.csrf.CsrfResponseMiddleware',
 		'django.middleware.doc.XViewMiddleware',
+		#'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
 		#'lockdown.middleware.LockdownMiddleware',
 	
 )
@@ -140,6 +141,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+	#'django.contrib.flatpages',
 #    'sphene.community',
 #    'sphene.sphboard',
 #    'sphene.sphwiki',

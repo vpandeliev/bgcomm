@@ -1,0 +1,3 @@
+BEGIN;
+ALTER TABLE "posts_page" ADD COLUMN "sidemenu" boolean NOT NULL DEFAULT 0;
+COMMIT;

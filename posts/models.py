@@ -45,6 +45,7 @@ class Executive(Person):
 class Post(models.Model):
 	author = models.CharField('Author', max_length=140)
 	image = models.FileField('Картинка',upload_to='postimgs', storage=OverwriteStorage(), blank=True)
+	hide = models.BooleanField('Hide page (unpublish)')
 	titlebg = models.CharField('Title (BG)',max_length=140)
 	textbg = tinymce_models.HTMLField('Text (BG)')
 	titleen = models.CharField('Title (EN)',max_length=140)
@@ -56,9 +57,41 @@ class Post(models.Model):
 	first_paragraph_en = None
 	first_paragraph_fr = None
 	def __unicode__(self):
-	        return u'%s - %s' % (self.titleen, self.date)
+		if self.hide:
+			return u'(HIDDEN) %s - %s' % (self.titleen, self.date)
+		return u'%s - %s' % (self.titleen, self.date)
 	
+
+class Page(models.Model):
+	order = models.IntegerField('Display Order')
+	hide = models.BooleanField('Hide page (unpublish)')
+	topmenu = models.BooleanField('Display on top menu (main page)?')
+	sidemenu = models.BooleanField('Display on side menu?')
+	slug = models.CharField('Slug', max_length=140, primary_key=True)
+	linkbg = models.CharField('Link title (BG)', max_length=140)
+	titlebg = models.CharField('Title (BG)',max_length=140)
+	textbg = models.TextField('Text (BG)')
+	linken = models.CharField('Link title (EN)', max_length=140)
+	titleen = models.CharField('Title (EN)',max_length=140)
+	texten = models.TextField('Text (EN)')
+	linkfr = models.CharField('Link title (FR)', max_length=140)
+	titlefr = models.CharField('Title (FR)',max_length=140)
+	textfr = models.TextField('Text (FR)')
+
 	
+    
+	def __unicode__(self):
+		s = ''
+		if self.topmenu:
+			s = u'Top Menu %d %s - %s' % (self.order, self.slug, self.titleen)
+		elif self.sidemenu:
+			s = u'Side Menu %d %s - %s' % (self.order, self.slug, self.titleen)
+		else:
+			s = u'%s - %s' % (self.slug, self.titleen)
+		if self.hide:
+			s = "(HIDDEN) " + s
+		return s
+		
 '''	titlebg = models.CharField('Заглавие (BG)',max_length=140)
 	titleen = models.CharField('Заглавие (EN)',max_length=140)
 	titlefr = models.CharField('Заглавие (FR)',max_length=140)
@@ -161,8 +194,8 @@ class Price(models.Model):
 
 		
 class Event(models.Model):
+	hide = models.BooleanField('Hide page (unpublish)')
 	namebg = models.CharField('Title (BG)',max_length=140)
-	
 	descriptionbg = tinymce_models.HTMLField('Text (BG)')
 	image = models.FileField('Картинка',upload_to='eventimgs', storage=OverwriteStorage(), blank=True)
 	nameen = models.CharField('Title (EN)',max_length=140)
@@ -177,6 +210,8 @@ class Event(models.Model):
 	date = models.DateTimeField('Дата и час')
 	
 	def __unicode__(self):
+		if self.hide:
+			return u'(HIDDEN) %s - %s' % (self.namebg, self.date.date())
 		return u'%s - %s' % (self.namebg, self.date.date())
 
 class Ad(models.Model):

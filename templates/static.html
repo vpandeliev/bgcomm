@@ -1,0 +1,32 @@
+{% extends "menu.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+{% load tags %}
+
+<div class="page">
+	
+{% if bg %}
+	<h1> {{page.titlebg}} </h1>
+	{% render page.textbg %}
+
+{%else%}	
+{% if en %}
+	<h1> {{page.titleen}} </h1>
+	{% render page.texten %}
+
+{% else %}
+<h1> {{page.titlefr}} </h1>
+{% render page.textfr %}
+
+
+
+
+{%endif%}
+
+{%endif%}
+
+</div>
+
+{% endblock %}
