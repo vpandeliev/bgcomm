@@ -1,6 +1,6 @@
 from django import template
 from django.utils.safestring import mark_safe
-from posts.models import *
+from bgcomm.posts.models import *
 
 register = template.Library()
 

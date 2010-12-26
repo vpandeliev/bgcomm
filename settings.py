@@ -15,7 +15,6 @@ except ImportError:
 MAX_POSTS = 5
 MAX_EVENTS = 3
 SIDEBAR_ADS = 3
-DEBUG=False
 TEMPLATE_DEBUG = DEBUG
 FEEDBACK_EMAILS = ["bulgariancommunity@yahoo.ca","vpandeliev@gmail.com"]
 MEMBERSHIP_EMAILS = ["bulgariancommunity@yahoo.ca"]
